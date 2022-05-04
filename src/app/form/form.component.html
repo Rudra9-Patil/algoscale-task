@@ -1,0 +1,56 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6">
+            <form [formGroup]="loginForm"(ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Full Name</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="fullname">
+                  
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Email Id</label>
+                  <input type="email" class="form-control" id="exampleInputPassword1" formControlName="email">
+                </div>
+            
+                <div class="form-group">
+                    <label for="exampleInputPassword1">username</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" formControlName="username">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Gender</label> <br>
+                    <label>Male <input type="radio" name="gender" id="exampleRadios1"formControlName="gender" value="male">
+                    </label>
+                    <br>
+    
+                    <label>Female <input type="radio" name="gender" id="exampleRadios2" formControlName="gender" value="Female">
+                    </label>
+                    <!-- <span style="color:red;" *ngIf="gender?.invalid && gender?.touched">please enter gender</span> -->
+    
+                </div>
+    
+    
+    
+                  
+               
+            
+            
+               
+                <button type="submit" class="btn btn-primary d-inline"[disabled]="loginForm.invalid">Submit</button>
+                <button type="button" class="btn btn-primary">Reset</button>
+
+               </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+    
