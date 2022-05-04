@@ -1,56 +1,87 @@
-<div class="container">
+<div class="container mt-3">
 
     <div class="row">
-        <div class="col-md-6">
-            <form [formGroup]="loginForm"(ngSubmit)="onSubmit()">
+        <div class="col-md-4 ">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Full Name</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="fullname">
-                  
-                </div>
+                    <label for="exampleInputEmail1">Full Name</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        formControlName="fullname">
+                    <span style="color:red;" *ngIf="fullname?.invalid && fullname?.touched">please enter valid
+                        fullname</span>
+
+                    </div>
+
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Email Id</label>
-                  <input type="email" class="form-control" id="exampleInputPassword1" formControlName="email">
+                    <label for="exampleInputPassword1">Email Id</label>
+                    <input type="email" class="form-control" id="exampleInputPassword1" formControlName="email">
+                    <span style="color:red;" *ngIf="email?.invalid && email?.touched">please enter valid email</span>
+
                 </div>
-            
+
                 <div class="form-group">
                     <label for="exampleInputPassword1">username</label>
                     <input type="text" class="form-control" id="exampleInputPassword1" formControlName="username">
-                  </div>
-                  <div class="form-group">
+                    <span style="color:red;" *ngIf="username?.invalid && username?.touched">please enter valid
+                        username</span>
+
+                </div>
+                <div class="form-group">
                     <label for="exampleInputPassword1">password</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
-                  </div>
+                    <span style="color:red;" *ngIf="password?.invalid && password?.touched">please enter valid
+                        password</span>
+                </div>
 
-                  <div class="form-group">
+                <div class="form-group">
                     <label for="exampleInputPassword1">Gender</label> <br>
-                    <label>Male <input type="radio" name="gender" id="exampleRadios1"formControlName="gender" value="male">
+                    <label>Male <input type="radio" name="gender" id="exampleRadios1" formControlName="gender"
+                            value="male">
                     </label>
                     <br>
-    
-                    <label>Female <input type="radio" name="gender" id="exampleRadios2" formControlName="gender" value="Female">
-                    </label>
-                    <!-- <span style="color:red;" *ngIf="gender?.invalid && gender?.touched">please enter gender</span> -->
-    
-                </div>
-    
-    
-    
-                  
-               
-            
-            
-               
-                <button type="submit" class="btn btn-primary d-inline"[disabled]="loginForm.invalid">Submit</button>
-                <button type="button" class="btn btn-primary">Reset</button>
 
-               </form>
+                    <label>Female <input type="radio" name="gender" id="exampleRadios2" formControlName="gender"
+                            value="Female">
+                    </label>
+                    <span style="color:red;" *ngIf="gender?.invalid && gender?.touched">please enter gender</span>
+
+                </div>
+
+
+                <button type="submit" class="btn btn-primary d-inline" [disabled]="loginForm.invalid">Submit</button>
+                <button type="reset" class="btn btn-primary">Reset</button>
+
+            </form>
+
+        </div>
+        <div>
+            <table class="table table-dark mt-5" *ngIf="loginFormVal.length>0">
+                <thead>
+                    <tr>
+
+                        <th scope="col">FullName</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Gender</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let tblVal of loginFormVal">
+
+                        <td>{{tblVal.fullname}}</td>
+                        <td>{{tblVal.email}}</td>
+                        <td>{{tblVal.username}}</td>
+                        <td>{{tblVal.password}}</td>
+                        <td>{{tblVal.gender}}</td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+
 
         </div>
     </div>
 </div>
-
-
-
-
-    

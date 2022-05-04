@@ -9,6 +9,7 @@ import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators }
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+  loginFormVal:any=[]
   constructor() { }
 
   loginForm= new FormGroup(
@@ -50,7 +51,9 @@ gender:new FormControl('',[Validators.required]),
   }
 
   onSubmit(){
-      console.log(this.loginForm.value)
+      console.log(this.loginForm.value);
+      this.loginFormVal.push(this.loginForm.value);
+
   }
 
 }
